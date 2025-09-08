@@ -13,3 +13,14 @@ def count_chars(text):
 
     return ccount
 
+def sort_char(c):
+    return c["num"]
+
+def make_charlist(charcount):
+    dalist = []
+    for c in charcount:
+        dalist.append({"char": c, "num": charcount[c]})
+
+    dalist.sort(reverse=True, key=sort_char)
+
+    return dalist
