@@ -21,7 +21,7 @@ def report(book, words, sortchar):
             print(f"{alph['char']}: {alph['num']}")
 
 def usage():
-    print("python3 main.py <path to book>")
+    print("Usage: python3 main.py <path_to_book>")
 
 def report_book(bookname):
     book = get_book_text(bookname)
