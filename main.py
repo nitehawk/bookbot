@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import sys
 from stats import count_words
 from stats import count_chars
 from stats import make_charlist
@@ -19,14 +20,21 @@ def report(book, words, sortchar):
         if alph["char"].isalpha():
             print(f"{alph['char']}: {alph['num']}")
 
+def usage():
+    print("python3 main.py <path to book>")
 
-def main():
-    bookname = "books/frankenstein.txt"
+def report_book(bookname):
     book = get_book_text(bookname)
     count = count_words(book)
     cchar = count_chars(book)
     clist = make_charlist(cchar)
     report(bookname, count, clist)
+
+def main():
+    if len(sys.argv) != 2:
+        usage()
+        sys.exit(1)
+    report_book(sys.argv[1])
 
 
 main()
